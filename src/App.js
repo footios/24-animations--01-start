@@ -8,21 +8,23 @@ import List from "./components/List/List";
 class App extends Component {
 
 state = {
+  modalInitial: true,
   modalisOpen: false
 }
 
+
 showModal = () => {
-  this.setState({modalisOpen: true})
+  this.setState({modalisOpen: true, modalInitial: false})
 }
 
 closeModal = () => {
-  this.setState({modalisOpen: false})
+  this.setState({modalisOpen: false, modalInitial: false})
 }
   render() {
     return (
       <div className="App">
         <h1>React Animations</h1>
-        <Modal show={this.state.modalisOpen} closed={this.closeModal} />
+        <Modal modalInitial={this.state.modalInitial} show={this.state.modalisOpen} closed={this.closeModal} />
         <Backdrop show={this.state.modalisOpen} /> 
         <button className="Button" onClick={this.showModal} >Open Modal</button>
         <h3>Animating Lists</h3>
