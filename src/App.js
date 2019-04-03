@@ -22,8 +22,8 @@ closeModal = () => {
     return (
       <div className="App">
         <h1>React Animations</h1>
-        <Modal show={this.state.modalisOpen} closed={this.closeModal} />
-        <Backdrop show={this.state.modalisOpen} /> 
+       {this.state.modalisOpen ? <Modal show={this.state.modalisOpen} closed={this.closeModal} /> : null}
+       {this.state.modalisOpen ? <Backdrop show={this.state.modalisOpen} /> : null}
         <button className="Button" onClick={this.showModal} >Open Modal</button>
         <h3>Animating Lists</h3>
         <List />
