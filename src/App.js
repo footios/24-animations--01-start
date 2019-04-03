@@ -56,8 +56,10 @@ class App extends Component {
 						/>
 					)}
 				</Transition>
-				{this.state.modalisOpen ? <Modal show={this.state.modalisOpen} closed={this.closeModal} /> : null}
-				{this.state.modalisOpen ? <Backdrop show={this.state.modalisOpen} /> : null}
+				<Transition mountOnEnter unmountOnExit in={this.state.modalisOpen} timeout={300}>
+					{(state) => <Modal show={state} closed={this.closeModal} />}
+				</Transition>
+				{this.state.modalisOpen ? <Backdrop show /> : null}
 				<button
 					style={{
 						margin: 20
