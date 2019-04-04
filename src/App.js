@@ -41,8 +41,25 @@ class App extends Component {
           'entered'
           'exiting'
           'exited'
-          */}
-				<Transition in={this.state.showBlock} timeout={1000} mountOnEnter unmountOnExit>
+		  */}
+		  {/* 
+		sometimes you want to execute certain code 
+		when the state of the animation finishes and not just
+		change what you render to the screen,
+		for that you get various callbacks, 
+		you can add functions you can execute to a transition,
+		We get six different events.
+		This can be nice to create
+		staggered animations where you want to wait 
+		for one animation to finish before you start the next one.*/}
+				<Transition in={this.state.showBlock} timeout={1000} mountOnEnter unmountOnExit
+				onEnter={() => console.log('onEnter')}
+				onEntering={() => console.log('onEntering')}
+				onEntered={() => console.log('onEntered')}
+				onExit={() => console.log('onExit')}
+				onExiting={() => console.log('onExiting')}
+				onExited={() => console.log('onExited')}
+				 >
 					{(state) => (
 						<div
 							style={{
